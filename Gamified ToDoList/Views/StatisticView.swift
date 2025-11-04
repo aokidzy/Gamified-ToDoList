@@ -104,7 +104,7 @@ class StatisticView: UIView {
     // MARK: - UI Setup
     private func setupUI() {
         backgroundColor = .systemGray6
-        layer.cornerRadius = 12
+        layer.cornerRadius = 16
         layer.masksToBounds = true
         
         expProgressView.transform = CGAffineTransform(scaleX: 1, y: 3)
@@ -121,5 +121,11 @@ class StatisticView: UIView {
             
             expLabel.widthAnchor.constraint(equalTo: hpLabel.widthAnchor),
         ])
+    }
+    
+    func update(with statistic: Statistic) {
+        levelLabel.text = "Lvl: \(statistic.level)"
+        expProgressView.progress = statistic.exp
+        hpProgressView.progress = statistic.hp
     }
 }
